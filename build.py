@@ -11,7 +11,7 @@ else:
     shutil.rmtree('./release')
 
 subprocess.run('pip freeze > requirements.txt', shell=True)
-subprocess.run('pyinstaller --noconfirm --onefile --windowed  "D:/Github/Andante/Andante.py"', shell=True)
-shutil.copytree('./src', './dist/src')
+subprocess.run('pyinstaller --noconfirm --onefile --windowed --icon "D:/Github/Andante/src/icon.ico" --add-data '
+               '"D:/Github/Andante/src;src/"  "D:/Github/Andante/Andante.py"', shell=True)
 shutil.make_archive('./release/Andante', 'zip', './dist')
 print('done')
