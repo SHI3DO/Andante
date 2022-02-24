@@ -1,5 +1,4 @@
 import random
-
 import pygame
 from pygame.locals import *
 import sys
@@ -8,22 +7,24 @@ from game import screen_background
 from utils import resourcepath
 from utils import essfolder
 from game import screen_upbar
+from game import maps_container
 
+# //////////////////////////////////////////////////////////////////////////////
 essfolder.make()
-
+# //////////////////////////////////////////////////////////////////////////////
 pygame.init()
 icon = pygame.image.load(resourcepath.resource_path("src/icon.png"))
 pygame.display.set_icon(icon)
-flags = DOUBLEBUF#| FULLSCREEN
+flags = DOUBLEBUF  # | FULLSCREEN
 screen = pygame.display.set_mode((1280, 720), flags)
 screenx, screeny = screen.get_size()
 pygame.display.set_caption("Andante")
-
 clock = pygame.time.Clock()
-
+# //////////////////////////////////////////////////////////////////////////////
 bgarray = get_bg.get("src/bg", pygame, screenx, screeny)
 bgnum = random.randrange(0, len(bgarray))
-
+maplist = maps_container.get()
+# //////////////////////////////////////////////////////////////////////////////
 mainLoop = True
 while mainLoop:
     events = pygame.event.get()
@@ -42,6 +43,7 @@ while mainLoop:
     screen_background.draw(screen, bgarray[bgnum])
     screen_upbar.draw(screen, pygame, screenx, screeny)
     pygame.display.flip()
-
+    print(clock.get_fps())
+# //////////////////////////////////////////////////////////////////////////////
 pygame.quit()
 sys.exit()
