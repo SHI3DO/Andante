@@ -35,6 +35,10 @@ while mainLoop:
                 sys.exit()
             if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
                 mainLoop = False
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                pass
+            if event.type == pygame.MOUSEWHEEL:
+                pass
 
     dt = clock.tick(60)
 
@@ -42,6 +46,7 @@ while mainLoop:
 
     screen_background.draw(screen, bgarray[bgnum])
     screen_upbar.draw(screen, pygame, screenx, screeny)
+    maps_container.draw(screen, pygame, screenx, screeny, maplist)
     pygame.display.flip()
     print(clock.get_fps())
 # //////////////////////////////////////////////////////////////////////////////
