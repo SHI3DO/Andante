@@ -1,7 +1,7 @@
 <h1 align="center">
 	<img
 		width="300"
-		alt="TFU"
+		alt="Andante"
 		src="https://raw.githubusercontent.com/SHI3DO/Andante/main/src/icon.png">
 </h1>
 
